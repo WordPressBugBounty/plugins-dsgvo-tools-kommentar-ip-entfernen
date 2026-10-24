@@ -2,7 +2,7 @@
 Contributors: fhwebdesign
 Tags: dsgvo,tools,kommentar,deaktivieren,gdpr,comment,deactivate,remove,löschen
 Requires at least: 4.9.3
-Tested up to: 6.7
+Tested up to: 7.1
 Requires PHP: 6.5
 Stable tag: trunk
 License: GPL3
@@ -27,6 +27,9 @@ The GDPR conformity hasn't been proved by an lawyer and only reflects the estima
 2. Backend with saved ip adresses
 
 == Changelog ==
+= 1.6 =
+* Update to WP 7.1
+
 = 1.5 =
 * Update to WP 6.7
 
