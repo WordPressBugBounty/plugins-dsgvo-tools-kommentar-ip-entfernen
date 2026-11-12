@@ -27,6 +27,9 @@ The GDPR conformity hasn't been proved by an lawyer and only reflects the estima
 2. Backend with saved ip adresses
 
 == Changelog ==
+= 1.6.1 =
+* Fix issue with admin page not loading
+
 = 1.6 =
 * Update to WP 7.1
 

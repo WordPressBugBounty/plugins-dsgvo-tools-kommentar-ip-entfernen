@@ -17,7 +17,7 @@ function fhw_dsgvo_kommmentar_options() {
 function fhw_dsgvo_kommentar_options_seite() {
 	global $wpdb;
 	if( !is_admin() ) {
-		wp_die( _e( 'No permissions', 'dsgvo-tools-kommentar-ip-entfernen' ) );
+		wp_die( esc_html__( 'No permissions', 'dsgvo-tools-kommentar-ip-entfernen' ) );
 	}	
 ?>
 	<style>
@@ -61,14 +61,13 @@ function fhw_dsgvo_kommentar_options_seite() {
 		<h1><?php _e( 'GDPR tools: comment ip removement', 'dsgvo-tools-kommentar-ip-entfernen' ); ?></h1>
 		<form method="post" action="">
 		<?php $savedIPs = $wpdb->get_var( "SELECT COUNT(comment_author_IP) FROM $wpdb->comments WHERE comment_author_IP != ''" ); ?>
-					<p><?php echo _e( 'Stored ip addresses', 'dsgvo-tools-kommentar-ip-entfernen' ) . ': ' . $savedIPs; ?></p>
+					<p><?php echo esc_html__( 'Stored ip addresses', 'dsgvo-tools-kommentar-ip-entfernen' ) . ': ' . intval( $savedIPs ); ?></p>
 					<?php wp_nonce_field( 'fhw_dsgvo_kommentar_nonce', 'nonce1' ); ?>
 				<input type="submit" name="fhw_dsgvo_kommentar_removeIP" value="<?php _e( 'Delete all ip adresses!', 'dsgvo-tools-kommentar-ip-entfernen' ); ?>" <?php if( $savedIPs == 0 ) echo "disabled"; ?> />
 		</form>
 		<form method="post" action="options.php">
 			<?php settings_fields( 'fhw_dsgvo_kommentar_options_group1' ); ?>
 			<?php do_settings_sections( 'fhw_dsgvo_kommentar_options_group1' ); ?>
-			<?php echo checked( 1, get_option( 'fhw_dsgvo_kommentar_time_removement' ) ); ?>
 			<label><input type="checkbox" name="fhw_dsgvo_kommentar_time_removement" <?php if( 'on' == get_option( 'fhw_dsgvo_kommentar_time_removement' ) ) echo "checked"; ?> /><?php _e( 'Delete comment ip addresses after time', 'dsgvo-tools-kommentar-ip-entfernen' ); ?></label>
 			<label><?php _e( 'Delete after', 'dsgvo-tools-kommentar-ip-entfernen' ); ?> <input type="number" name="fhw_dsgvo_kommentar_removement_time" value="<?php echo get_option( 'fhw_dsgvo_kommentar_removement_time', 180 ); ?>" /> <?php _e( 'Days', 'dsgvo-tools-kommentar-ip-entfernen' ); ?></label>
 			<?php submit_button(); ?>

@@ -2,15 +2,15 @@
 /*
 Plugin Name: GDPR tools: comment ip removement
 Description: Part of GDPR tools package. Removes all ip adresses from comments.
-Version: 1.6
+Version: 1.6.1
 Author: fabian heinz webdesign
 Author URI: https://www.fabian-heinz-webdesign.de
 Text Domain: dsgvo-tools-kommentar-ip-entfernen
 License: GPL3
 */
 
-use Admin\Settings;
-use Admin\Looper;
+require_once plugin_dir_path( __FILE__ ) . 'admin/settings.php';
+require_once plugin_dir_path( __FILE__ ) . 'admin/looper.php';
 
 add_action( 'init', function () {
   load_plugin_textdomain( 'dsgvo-tools-kommentar-ip-entfernen' );
